@@ -14,12 +14,11 @@
     "start": "webpack-dev-server",
     "start-https": "webpack-dev-server --https",
     "build": "webpack --mode production",
-    "lint": "eslint src --ext tsx",
+    "lint": "eslint src --ext js,jsx,ts,tsx",
     "prettier": "prettier --write **/*",
     "typescript": "tsc",
     "prepublishOnly": "npm run build",
-    "test": "jest --config jest.config.json",
-    "pretest": "eslint ."
+    "test": "jest --config jest.config.json"
   },
   "browserslist": [
     "extends browserslist-config-openmrs"
