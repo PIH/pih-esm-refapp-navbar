@@ -10,9 +10,7 @@ defineConfigSchema("pih-esm-refapp-navbar", {
 });
 
 function Root(props) {
-  return (
-    <div>Hey</div>
-  );
+  return <div>Hey</div>;
 }
 export default openmrsRootDecorator({
   featureName: "Refapp Navbar",
