@@ -8,7 +8,6 @@ import style from "./navbar.css";
 export default function Navbar(props) {
   const config = useConfig();
 
-  console.log(config);
   return (
     <header className={style.navbar}>
       <div className={`omrs-type-title-4 ${style.brand}`}>
@@ -26,7 +25,7 @@ export default function Navbar(props) {
         <div>
           <a
             className={style.navbarLink}
-            href={`/${
+            href={`${
               (window as any).openmrsBase
             }/appui/header/logout.action?successUrl=${
               config.links.logoutRedirect.url
