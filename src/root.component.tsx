@@ -3,7 +3,7 @@ import openmrsRootDecorator from "@openmrs/react-root-decorator";
 import { defineConfigSchema, validators } from "@openmrs/esm-module-config";
 import Navbar from "./navbar/navbar.component";
 
-defineConfigSchema("pih-esm-refapp-navbar", {
+defineConfigSchema("@pih/esm-refapp-navbar", {
   links: {
     home: {
       url: {
@@ -12,7 +12,8 @@ defineConfigSchema("pih-esm-refapp-navbar", {
     },
     account: {
       url: {
-        default: (window as any).openmrsBase + "/adminui/myaccount/myAccount.page"
+        default:
+          (window as any).openmrsBase + "/adminui/myaccount/myAccount.page"
       }
     },
     logoutRedirect: {
@@ -25,19 +26,19 @@ defineConfigSchema("pih-esm-refapp-navbar", {
     src: {
       default: null,
       description:
-      "A path or URL to an image. Defaults to the OpenMRS SVG sprite.",
+        "A path or URL to an image. Defaults to the OpenMRS SVG sprite."
     },
     alt: {
       default: "OpenMRS",
-      description: "Alt text, shown on hover",
+      description: "Alt text, shown if the image fails to load"
     }
   }
 });
 
 function Root(props) {
-  return <Navbar></Navbar>
+  return <Navbar></Navbar>;
 }
 export default openmrsRootDecorator({
   featureName: "Refapp Navbar",
-  moduleName: "pih-esm-refapp-navbar"
+  moduleName: "@pih/esm-refapp-navbar"
 })(Root);
