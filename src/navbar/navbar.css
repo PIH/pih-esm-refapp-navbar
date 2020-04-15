@@ -1,0 +1,17 @@
+.navbar {
+    background-color: #501d3d;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--omrs-topnav-height);
+    width: 100vw;
+    padding: 0 0.5rem;
+}
+
+.navbar svg {
+    filter: invert(100%);  /* can't quite get it white */
+}
