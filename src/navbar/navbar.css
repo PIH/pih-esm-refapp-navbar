@@ -13,6 +13,16 @@
   font-size: 16px;
 }
 
+.navbar div {
+  display: flex;
+  align-items: center;
+}
+
+.navbar button {
+  display: flex;
+  align-items: center;
+}
+
 .navbar svg {
   margin: 0 12px;
   font-size: 1.2em;
@@ -42,7 +52,6 @@ a:hover.navbarLink {
 }
 
 .menu {
-  display: flex;
   line-height: 1.5em;
 }
 
@@ -52,4 +61,28 @@ a:hover.navbarLink {
 
 .user {
   color: #ccc;
+}
+
+.locationButton {
+  background-color: transparent;
+  border: 1px solid #63244b;
+  border-radius: 3px;
+  color: white;
+  font: inherit;
+  padding: 2px;
+}
+
+.locationButton:hover {
+  background-color: #63244b;
+}
+
+.locationButton:focus {
+  outline: thin dotted;
+}
+
+/* Hide Mozilla's button focus style */
+@supports (-moz-appearance: none) {
+  .locationButton::-moz-focus-inner {
+    border: none;
+  }
 }

@@ -4,4 +4,13 @@ export const openmrsFetch = jest.fn().mockReturnValue(new Promise(() => {}));
 
 export const getCurrentUser = jest
   .fn()
-  .mockReturnValue(of({ display: "admin" }));
+  .mockImplementation(({ includeAuthStatus }) => {
+    if (includeAuthStatus) {
+      return of({
+        user: { display: "admin" },
+        sessionLocation: { display: "Narnia" }
+      });
+    } else {
+      return of({ display: "admin" });
+    }
+  });
