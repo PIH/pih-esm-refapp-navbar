@@ -1,0 +1,42 @@
+.navbar {
+  background-color: #501d3d;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  padding: 8px 30px;
+  font-size: 16px;
+}
+
+.brand a {
+  display: flex;
+}
+
+.brand svg {
+  filter: invert(100%); /* can't quite get it white */
+}
+
+.navbar svg {
+  margin: 0 12px;
+  font-size: 1.2em;
+}
+
+a.navbarLink,
+a:visited.navbarLink,
+a:hover.navbarLink,
+a:link.navbarLink {
+  color: white;
+}
+
+a.navbarLink {
+  text-decoration: none;
+}
+
+a:hover.navbarLink {
+  text-decoration: underline;
+}
