@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { Trans } from "react-i18next";
 import { useConfig } from "@openmrs/esm-module-config";
+import { getCurrentUser } from "@openmrs/esm-api";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import { faSignOutAlt, faUser } from "@fortawesome/free-solid-svg-icons";
 import style from "./navbar.css";
 
 export default function Navbar(props) {
   const config = useConfig();
+  const [user, setUser] = React.useState(null);
+
+  React.useEffect(() => {
+    const sub = getCurrentUser().subscribe(user => setUser(user));
+    return () => sub.unsubscribe();
+  }, []);
 
   return (
     <header className={style.navbar}>
@@ -21,7 +28,11 @@ export default function Navbar(props) {
           )}
         </a>
       </div>
-      <div>
+      <div className={style.menu}>
+        <div className={style.user}>
+          <FontAwesomeIcon icon={faUser} />
+          {user && user.display}
+        </div>
         <div>
           <a
             className={style.navbarLink}
