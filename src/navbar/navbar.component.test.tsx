@@ -1,17 +1,25 @@
 import React from "react";
-import { render, fireEvent, wait } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { mergeDeepRight } from "ramda";
+import { of } from "rxjs";
 import Navbar from "./navbar.component";
-import {
-  useConfig as mockUseConfig,
-  testDefaultConfig
-} from "@openmrs/esm-module-config";
+import { getCurrentUser } from "@openmrs/esm-api";
+import { useConfig, testDefaultConfig } from "@openmrs/esm-module-config";
+
+const mockGetCurrentUser = getCurrentUser as jest.Mock;
+const mockUseConfig = useConfig as jest.Mock;
 
 describe("Navbar", () => {
   it("displays OpenMRS logo by default", () => {
     const { container } = render(<Navbar />);
     const logo: SVGElement = container.querySelector("svg use");
     expect(logo.getAttribute("href")).toEqual("#omrs-logo-partial-mono");
+  });
+
+  it("displays the currently logged in user's username", () => {
+    mockGetCurrentUser.mockReturnValue(of({ display: "yoshi" }));
+    const { queryByText } = render(<Navbar />);
+    expect(queryByText("yoshi")).not.toBeNull();
   });
 });
 

@@ -1,9 +1,7 @@
 import { of } from "rxjs";
 
-export function openmrsFetch() {
-  return new Promise(() => {});
-}
+export const openmrsFetch = jest.fn().mockReturnValue(new Promise(() => {}));
 
-export function getCurrentUser() {
-  return of({ authenticated: false });
-}
+export const getCurrentUser = jest
+  .fn()
+  .mockReturnValue(of({ display: "admin" }));
