@@ -9,18 +9,14 @@ import { useConfig, testDefaultConfig } from "@openmrs/esm-module-config";
 const mockGetCurrentUser = getCurrentUser as jest.Mock;
 const mockUseConfig = useConfig as jest.Mock;
 
-describe("Navbar", () => {
-  it("displays OpenMRS logo by default", () => {
-    const { container } = render(<Navbar />);
-    const logo: SVGElement = container.querySelector("svg use");
-    expect(logo.getAttribute("href")).toEqual("#omrs-logo-partial-mono");
-  });
-
-  it("displays the currently logged in user's username", () => {
-    mockGetCurrentUser.mockReturnValue(of({ display: "yoshi" }));
-    const { queryByText } = render(<Navbar />);
-    expect(queryByText("yoshi")).not.toBeNull();
-  });
+it("displays everything expected", () => {
+  const { container, queryByText } = render(<Navbar />);
+  const logo: SVGElement = container.querySelector("svg use");
+  expect(logo.getAttribute("href")).toEqual("#omrs-logo-partial-mono");
+  const username = "admin";
+  const location = "Narnia";
+  expect(queryByText(username)).not.toBeNull();
+  expect(queryByText(location)).not.toBeNull();
 });
 
 describe(`Navbar config`, () => {
