@@ -1,0 +1,40 @@
+.menu {
+  z-index: 1000;
+  background-color: var(--omrs-color-bg-high-contrast);
+  border: 2px solid #63244b;
+  border-radius: 3px;
+  position: absolute;
+  top: 50px;
+  right: 70px;
+  list-style: none;
+  display: grid;
+  grid-auto-columns: 240px;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(13, min-content);
+  border: 2px solid #63244b;
+}
+
+.menu label {
+  display: flex;
+  background-color: var(--omrs-color-bg-high-contrast);
+  color: var(--omrs-color-ink-high-contrast);
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid var(--omrs-color-bg-low-contrast);
+  border-radius: 0.25rem;
+  width: 20.5rem;
+}
+
+.buttonLabel {
+  position: inherit !important;
+}
+
+.menu button {
+  background-color: white;
+  border: none;
+  color: #007fff;
+  border-bottom: 1px solid #efefef;
+  text-align: left;
+  /* line-height: 1.5em; */
+  padding: 5px;
+  margin: 0 10px;
+}

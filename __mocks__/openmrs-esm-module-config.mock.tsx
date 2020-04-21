@@ -7,7 +7,7 @@ export const validators = {
   isString: jest.fn()
 };
 
-export const testDefaultConfig = {
+export const mock__defaultConfig = {
   links: {
     home: {
       url: "/home"
@@ -25,6 +25,6 @@ export const testDefaultConfig = {
   }
 };
 
-export const useConfig = jest.fn().mockReturnValue(testDefaultConfig);
+export const useConfig = jest.fn().mockReturnValue(mock__defaultConfig);
 
 export const ModuleNameContext = React.createContext("fake-module-config");

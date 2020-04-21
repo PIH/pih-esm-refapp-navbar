@@ -8,7 +8,7 @@ export const getCurrentUser = jest
     if (includeAuthStatus) {
       return of({
         user: { display: "admin" },
-        sessionLocation: { display: "Narnia" }
+        sessionLocation: { display: "Earth" }
       });
     } else {
       return of({ display: "admin" });
