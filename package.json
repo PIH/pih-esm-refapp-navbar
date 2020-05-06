@@ -18,6 +18,7 @@
     "prettier": "prettier --write **/*",
     "typescript": "tsc",
     "prepublishOnly": "npm run build",
+    "update-translations": "tx pull",
     "test": "jest --config jest.config.json"
   },
   "browserslist": [
@@ -25,7 +26,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently 'npm:lint' 'npm:test' 'npm:typescript'"
+      "pre-commit": "pretty-quick --staged && concurrently 'npm:lint' 'npm:test' 'npm:typescript' 'npm:update-translations' && git add translations/*.json"
     }
   },
   "repository": {
