@@ -1,4 +1,5 @@
-import { openmrsFetch, openmrsObservableFetch } from "@openmrs/esm-api";
+import { openmrsFetch, openmrsObservableFetch } from "@openmrs/esm-framework";
+import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 export function getLoginLocations(): Observable<Object[]> {

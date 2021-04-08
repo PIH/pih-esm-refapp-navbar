@@ -1,14 +1,13 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { render, fireEvent, wait, RenderResult } from "@testing-library/react";
+import { render, fireEvent, RenderResult } from "@testing-library/react";
 import { mergeDeepRight } from "ramda";
 import { of } from "rxjs";
 import Navbar from "./navbar.component";
-import { getCurrentUser } from "@openmrs/esm-api";
-import { useConfig, mock__defaultConfig } from "@openmrs/esm-module-config";
+import { useConfig } from "@openmrs/esm-framework";
 import { getLoginLocations } from "../location-menu/location-menu.resource";
+import { mock__defaultConfig } from "../../__mocks__/openmrs-esm-framework.mock";
 
-const mockGetCurrentUser = getCurrentUser as jest.Mock;
 const mockUseConfig = useConfig as jest.Mock;
 jest.mock("../location-menu/location-menu.resource");
 const mockGetLoginLocations = getLoginLocations as jest.Mock;

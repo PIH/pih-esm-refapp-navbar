@@ -2,13 +2,27 @@ const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin").CleanWebpackPlugin;
 const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
+const { peerDependencies } = require("./package.json");
+
+const cssLoader = {
+  loader: "css-loader",
+  options: {
+    modules: {
+      localIdentName: "esm-refapp-navbar__[name]__[local]___[hash:base64:5]"
+    }
+  }
+};
+
 module.exports = {
-  entry: path.resolve(__dirname, "src/pih-esm-refapp-navbar.tsx"),
+  entry: [
+    path.resolve(__dirname, "src/set-public-path.ts"),
+    path.resolve(__dirname, "src/index.ts")
+  ],
   output: {
-    filename: "pih-esm-refapp-navbar.js",
+    filename: "pih-esm-refapp-navbar-app.js",
     libraryTarget: "system",
     path: path.resolve(__dirname, "dist"),
-    jsonpFunction: "webpackJsonp_pih_esm_refapp_navbar"
+    jsonpFunction: "webpackJsonp_pih_esm_refapp-navbar"
   },
   module: {
     rules: [
@@ -26,13 +40,17 @@ module.exports = {
       },
       {
         test: /\.css$/,
+        use: ["style-loader", cssLoader]
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", cssLoader, "sass-loader"]
+      },
+      {
+        test: /\.(png|jpe?g)$/i,
         use: [
-          { loader: "style-loader" },
           {
-            loader: "css-loader",
-            options: {
-              modules: true
-            }
+            loader: "file-loader"
           }
         ]
       }
@@ -45,13 +63,7 @@ module.exports = {
     },
     disableHostCheck: true
   },
-  externals: [
-    "react",
-    "react-dom",
-    /^@openmrs\/esm.*/,
-    "i18next",
-    "react-i18next"
-  ],
+  externals: Object.keys(peerDependencies),
   plugins: [new ForkTsCheckerWebpackPlugin(), new CleanWebpackPlugin()],
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js"]

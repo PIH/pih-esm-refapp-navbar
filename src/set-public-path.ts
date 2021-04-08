@@ -1,3 +1,3 @@
 import { setPublicPath } from "systemjs-webpack-interop";
 
-setPublicPath("@pih/esm-refapp-navbar");
+setPublicPath("@pih/esm-refapp-navbar-app");
