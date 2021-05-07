@@ -1,6 +1,6 @@
 {
   "name": "@pih/esm-refapp-navbar-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A RefApp-styled navbar compatible with the standard styleguide",
   "main": "dist/pih-esm-refapp-navbar-app.js",
   "types": "src/pih-esm-refapp-navbar.d.tsx",
