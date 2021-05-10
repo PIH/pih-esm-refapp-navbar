@@ -1,8 +1,7 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
-import React, { useState } from "react";
+import React from "react";
 import { Trans } from "react-i18next";
-import { useConfig } from "@openmrs/esm-module-config";
-import { getCurrentUser } from "@openmrs/esm-api";
+import { getCurrentUser, useConfig } from "@openmrs/esm-framework";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignOutAlt,
@@ -25,7 +24,7 @@ export default function Navbar(props) {
     const sub = getCurrentUser({ includeAuthStatus: true }).subscribe(user => {
       setUser(user);
       if (user.user) {
-        // with current esm-api there's no way to get sessionLocation type-safely
+        // with current getCurrentUser implementation there's no way to get sessionLocation type-safely
         setLocation((user as any).sessionLocation);
       }
     });

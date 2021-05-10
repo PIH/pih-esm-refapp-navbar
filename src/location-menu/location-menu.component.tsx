@@ -1,5 +1,5 @@
 import React from "react";
-import { createErrorHandler } from "@openmrs/esm-error-handling";
+import { createErrorHandler } from "@openmrs/esm-framework";
 import {
   getLoginLocations,
   setSessionLocation

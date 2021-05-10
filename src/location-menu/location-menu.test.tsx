@@ -1,6 +1,11 @@
 import React from "react";
 import "@testing-library/jest-dom";
-import { render, fireEvent, wait, RenderResult } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  RenderResult,
+  waitFor
+} from "@testing-library/react";
 import { of } from "rxjs";
 import LocationMenu from "./location-menu.component";
 import {
@@ -40,7 +45,8 @@ describe("LocationMenu", () => {
     fireEvent.click(ui.getByText("Jupiter"));
     expect(mockedSetSessionLocation).toHaveBeenCalledTimes(1);
     expect(mockedSetSessionLocation.mock.calls[0][0]).toBe("333");
-    await wait();
-    expect(mockOnSetLocation).toHaveBeenCalledWith(loginLocations[2]);
+    await waitFor(() =>
+      expect(mockOnSetLocation).toHaveBeenCalledWith(loginLocations[2])
+    );
   });
 });
