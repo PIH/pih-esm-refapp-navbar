@@ -41,9 +41,6 @@
   "bugs": {
     "url": "https://github.com/pih/esm-refapp-navbar/issues"
   },
-  "dependencies": {
-    "systemjs-webpack-interop": "^2.3.6"
-  },
   "peerDependencies": {
     "@openmrs/esm-framework": "3.x",
     "react": "16.x",
