@@ -1,7 +1,11 @@
 /* eslint-disable jsx-a11y/tabindex-no-positive */
 import React from "react";
 import { Trans } from "react-i18next";
-import { getCurrentUser, useConfig } from "@openmrs/esm-framework";
+import {
+  ConfigurableLink,
+  getCurrentUser,
+  useConfig
+} from "@openmrs/esm-framework";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSignOutAlt,
@@ -36,7 +40,7 @@ export default function Navbar(props) {
     <nav>
       <div className={style.navbar}>
         <div className={`omrs-type-title-4 ${style.brand}`}>
-          <a href={config.links.home.url} tabIndex={1}>
+          <ConfigurableLink to={config.links.home.url} tabIndex={1}>
             {config.brand.src ? (
               <img alt={config.brand.alt} src={config.brand.src} />
             ) : (
@@ -44,7 +48,7 @@ export default function Navbar(props) {
                 <use href="#omrs-logo-partial-mono"></use>
               </svg>
             )}
-          </a>
+          </ConfigurableLink>
         </div>
         <div className={style.menu}>
           <div className={style.user}>
@@ -66,18 +70,17 @@ export default function Navbar(props) {
             </button>
           </div>
           <div>
-            <a
+            <ConfigurableLink
               className={style.navbarLink}
-              href={`${
-                (window as any).openmrsBase
-              }/appui/header/logout.action?successUrl=${
+              to={
+                "${openmrsBase}/appui/header/logout.action?successUrl=" +
                 config.links.logoutRedirect.url
-              }`}
+              }
               tabIndex={3}
             >
               <Trans id="logout">Logout</Trans>
               <FontAwesomeIcon icon={faSignOutAlt} />
-            </a>
+            </ConfigurableLink>
           </div>
         </div>
       </div>
