@@ -17,6 +17,5 @@
       "es2020"
     ],
     "noEmit": true
-  },
-  "include": ["src/**/*"]
+  }
 }

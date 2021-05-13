@@ -21,16 +21,10 @@ module.exports = {
   output: {
     filename: "pih-esm-refapp-navbar-app.js",
     libraryTarget: "system",
-    path: path.resolve(__dirname, "dist"),
-    jsonpFunction: "webpackJsonp_pih_esm_refapp-navbar"
+    path: path.resolve(__dirname, "dist")
   },
   module: {
     rules: [
-      {
-        parser: {
-          system: false
-        }
-      },
       {
         test: /\.m?(js|ts|tsx)$/,
         exclude: /(node_modules|bower_components)/,
@@ -56,7 +50,7 @@ module.exports = {
       }
     ]
   },
-  devtool: "sourcemap",
+  devtool: "source-map",
   devServer: {
     headers: {
       "Access-Control-Allow-Origin": "*"
