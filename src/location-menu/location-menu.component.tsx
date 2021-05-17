@@ -8,10 +8,7 @@ import style from "./location-menu.css";
 
 export default function LocationMenu(props: LocationMenuProps) {
   const [loginLocations, setLoginLocations] = React.useState([]);
-  const [newLocation, setNewLocation]: [
-    Location,
-    (l: Location) => void
-  ] = React.useState(null);
+  const [newLocation, setNewLocation] = React.useState<Location>(null);
 
   React.useEffect(() => {
     const sub = getLoginLocations().subscribe(

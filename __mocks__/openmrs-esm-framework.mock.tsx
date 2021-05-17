@@ -52,3 +52,9 @@ export const mock__defaultConfig = {
 export const useConfig = jest.fn().mockReturnValue(mock__defaultConfig);
 
 export const ModuleNameContext = React.createContext("fake-module-config");
+
+export const ConfigurableLink = jest
+  .fn()
+  .mockImplementation((config: { to: string; children: React.ReactNode }) => (
+    <a href={config.to}>{config.children}</a>
+  ));
