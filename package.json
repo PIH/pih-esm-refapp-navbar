@@ -7,7 +7,7 @@
   "license": "MPL-2.0",
   "homepage": "https://pihemr.atlassian.net/wiki/spaces/DSS/pages/538116104/PIH+EMR+Referrals+Queue",
   "scripts": {
-    "start": "openmrs develop --backend https://humci.pih-emr.org --api-url /mirebalais/ --spa-path /mirebalais/spa/ --importmap 'https://humci.pih-emr.org/mirebalais/spa/importmap.json'",
+    "start": "openmrs develop",
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production",
     "analyze": "webpack --mode=production --env.analyze=true",
