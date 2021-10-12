@@ -4,23 +4,23 @@ import {
   render,
   fireEvent,
   RenderResult,
-  waitFor
+  waitFor,
 } from "@testing-library/react";
 import { of } from "rxjs";
 import LocationMenu from "./location-menu.component";
 import {
   getLoginLocations,
-  setSessionLocation
+  setSessionLocation,
 } from "./location-menu.resource";
 
 const loginLocations = [
   { uuid: "111", display: "Earth" },
   { uuid: "222", display: "Mars" },
-  { uuid: "333", display: "Jupiter" }
+  { uuid: "333", display: "Jupiter" },
 ];
 jest.mock("../location-menu/location-menu.resource", () => ({
   getLoginLocations: jest.fn(),
-  setSessionLocation: jest.fn()
+  setSessionLocation: jest.fn(),
 }));
 const mockedGetLoginLocations = getLoginLocations as jest.Mock;
 const mockedSetSessionLocation = setSessionLocation as jest.Mock;

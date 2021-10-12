@@ -2,7 +2,7 @@ import {
   defineConfigSchema,
   Type,
   getAsyncLifecycle,
-  isUrl
+  isUrl,
 } from "@openmrs/esm-framework";
 
 const backendDependencies = { appui: "1.0.0" };
@@ -21,23 +21,23 @@ function setupOpenMRS() {
         url: {
           _type: Type.String,
           _validators: [isUrl],
-          _default: "${openmrsBase}"
-        }
+          _default: "${openmrsBase}",
+        },
       },
       account: {
         url: {
           _type: Type.String,
           _validators: [isUrl],
-          _default: "${openmrsBase}/adminui/myaccount/myAccount.page"
-        }
+          _default: "${openmrsBase}/adminui/myaccount/myAccount.page",
+        },
       },
       logoutRedirect: {
         url: {
           _type: Type.String,
           _validators: [isUrl],
-          _default: "${openmrsBase}"
-        }
-      }
+          _default: "${openmrsBase}",
+        },
+      },
     },
     brand: {
       src: {
@@ -45,31 +45,31 @@ function setupOpenMRS() {
         _validators: [isUrl],
         _default: null,
         _description:
-          "A path or URL to an image. Defaults to the OpenMRS SVG sprite."
+          "A path or URL to an image. Defaults to the OpenMRS SVG sprite.",
       },
       alt: {
         _type: Type.String,
         _default: "OpenMRS",
-        _description: "Alt text, shown if the image fails to load"
-      }
-    }
+        _description: "Alt text, shown if the image fails to load",
+      },
+    },
   });
 
   const moduleName = "@pih/esm-refapp-navbar-app";
 
   const options = {
     featureName: "Refapp Navbar",
-    moduleName
+    moduleName,
   };
 
   return {
-    pages: [{
-      load: getAsyncLifecycle(() => import("./root.component"), options),
-      route: () => true,
-      order: 0
-
-    }
-    ]
+    pages: [
+      {
+        load: getAsyncLifecycle(() => import("./root.component"), options),
+        route: () => true,
+        order: 0,
+      },
+    ],
   };
 }
 

@@ -4,7 +4,7 @@ import { Trans } from "react-i18next";
 import {
   ConfigurableLink,
   getCurrentUser,
-  useConfig
+  useConfig,
 } from "@openmrs/esm-framework";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,7 +12,7 @@ import {
   faUser,
   faMapMarkerAlt,
   faCaretDown,
-  faCaretUp
+  faCaretUp,
 } from "@fortawesome/free-solid-svg-icons";
 import LocationMenu from "../location-menu/location-menu.component";
 
@@ -25,13 +25,15 @@ export default function Navbar(props) {
   const [isLocationMenuOpen, setIsLocationMenuOpen] = React.useState(false);
 
   React.useEffect(() => {
-    const sub = getCurrentUser({ includeAuthStatus: true }).subscribe(user => {
-      setUser(user);
-      if (user.user) {
-        // with current getCurrentUser implementation there's no way to get sessionLocation type-safely
-        setLocation((user as any).sessionLocation);
+    const sub = getCurrentUser({ includeAuthStatus: true }).subscribe(
+      (user) => {
+        setUser(user);
+        if (user.user) {
+          // with current getCurrentUser implementation there's no way to get sessionLocation type-safely
+          setLocation((user as any).sessionLocation);
+        }
       }
-    });
+    );
     return () => sub.unsubscribe();
   }, []);
 
@@ -89,7 +91,7 @@ export default function Navbar(props) {
         onMouseLeave={() => setIsLocationMenuOpen(false)}
       >
         <LocationMenu
-          onSetLocation={l => {
+          onSetLocation={(l) => {
             setLocation(l);
             setIsLocationMenuOpen(false);
           }}
