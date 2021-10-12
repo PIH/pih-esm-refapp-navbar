@@ -17,7 +17,8 @@
     "prepublishOnly": "npm run build",
     "test": "jest",
     "coverage": "npm test -- --coverage",
-    "update-translations": "tx pull"
+    "update-translations": "tx pull",
+    "prepare": "husky install"
   },
   "browserslist": [
     "extends browserslist-config-openmrs"
@@ -28,11 +29,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently 'npm:lint' 'npm:test' 'npm:typescript' 'npm:update-translations' && git add translations/*.json"
-    }
   },
   "repository": {
     "type": "git",
