@@ -1,3 +1,7 @@
+.navbarWrapper {
+  height: 3.2em;
+}
+
 .navbar {
   z-index: 9999;
   background-color: #501d3d;

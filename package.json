@@ -7,7 +7,7 @@
   "license": "MPL-2.0",
   "homepage": "https://pihemr.atlassian.net/wiki/spaces/DSS/pages/538116104/PIH+EMR+Referrals+Queue",
   "scripts": {
-    "start": "openmrs develop --backend https://humci.pih-emr.org/ --api-url /mirebalais/",
+    "start": "openmrs develop",
     "serve": "webpack serve --mode development",
     "build": "webpack --mode production",
     "analyze": "webpack --mode=production --env.analyze=true",
@@ -17,7 +17,8 @@
     "prepublishOnly": "npm run build",
     "test": "jest",
     "coverage": "npm test -- --coverage",
-    "update-translations": "tx pull"
+    "update-translations": "tx pull",
+    "prepare": "husky install"
   },
   "browserslist": [
     "extends browserslist-config-openmrs"
@@ -28,11 +29,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged && concurrently 'npm:lint' 'npm:test' 'npm:typescript' 'npm:update-translations' && git add translations/*.json"
-    }
   },
   "repository": {
     "type": "git",
@@ -48,45 +44,45 @@
     "react-i18next": "^11.x"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.2",
-    "@babel/plugin-proposal-class-properties": "^7.13.0",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@babel/preset-typescript": "^7.13.0",
-    "@fortawesome/fontawesome-svg-core": "^1.2.28",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
-    "@fortawesome/react-fontawesome": "^0.1.9",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.15",
     "@openmrs/esm-framework": "next",
-    "@testing-library/jest-dom": "^5.5.0",
-    "@testing-library/react": "^11.2.6",
-    "@types/jest": "^26.0.23",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.1.2",
+    "@types/jest": "^27.0.2",
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
-    "@types/systemjs": "^6.1.0",
-    "@types/webpack-env": "^1.15.1",
-    "@typescript-eslint/parser": "^2.18.0",
+    "@types/systemjs": "^6.1.1",
+    "@types/webpack-env": "^1.16.2",
+    "@typescript-eslint/parser": "^4.33.0",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
-    "babel-plugin-i18next-extract": "^0.6.1",
-    "concurrently": "^5.1.0",
-    "coveralls": "^3.0.7",
-    "eslint": "^7.26.0",
-    "eslint-config-prettier": "^6.6.0",
+    "babel-jest": "^27.2.5",
+    "babel-plugin-i18next-extract": "^0.8.3",
+    "concurrently": "^6.3.0",
+    "coveralls": "^3.1.1",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-ts-react-important-stuff": "^3.0.0",
-    "eslint-config-xo": "^0.27.2",
-    "eslint-plugin-prettier": "^3.1.1",
-    "husky": "^3.0.9",
-    "i18next": "^19.1.0",
+    "eslint-config-xo": "^0.39.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.2",
+    "i18next": "^21.2.4",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
-    "jest-cli": "^26.6.3",
-    "lint-staged": "^9.4.3",
+    "jest": "^27.2.5",
+    "jest-cli": "^27.2.5",
+    "lint-staged": "^11.2.0",
     "openmrs": "next",
-    "prettier": "^1.19.1",
-    "pretty-quick": "^1.11.1",
-    "ramda": "^0.27.0",
+    "prettier": "^2.4.1",
+    "pretty-quick": "^3.1.1",
+    "ramda": "^0.27.1",
     "react-i18next": "^11.3.1",
-    "rxjs": "^6.5.4",
-    "typescript": "^4.2.4"
+    "rxjs": "^7.4.0",
+    "typescript": "^4.4.3"
   }
 }

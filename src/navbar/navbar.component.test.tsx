@@ -13,7 +13,7 @@ jest.mock("../location-menu/location-menu.resource");
 const mockGetLoginLocations = getLoginLocations as jest.Mock;
 const loginLocations = [
   { uuid: "111", display: "Earth" },
-  { uuid: "222", display: "Mars" }
+  { uuid: "222", display: "Mars" },
 ];
 mockGetLoginLocations.mockReturnValue(of(loginLocations));
 
@@ -36,7 +36,7 @@ describe("Navbar", () => {
     const location = "Earth";
     expect(ui.queryByText(username)).not.toBeNull();
     const locationButton = ui.queryByText(location, {
-      selector: ".locationButton"
+      selector: ".locationButton",
     });
     expect(locationButton).toBeVisible();
   });
@@ -54,14 +54,14 @@ describe(`Navbar config`, () => {
       mergeDeepRight(mock__defaultConfig, {
         brand: {
           src: "my-logo.png",
-          alt: "My Org"
-        }
+          alt: "My Org",
+        },
       })
     );
     const { getByAltText } = render(<Navbar />);
     const logo = getByAltText("My Org");
     expect(logo).toMatchObject({
-      src: expect.stringMatching(/my-logo.png$/)
+      src: expect.stringMatching(/my-logo.png$/),
     });
   });
 
@@ -70,15 +70,15 @@ describe(`Navbar config`, () => {
       mergeDeepRight(mock__defaultConfig, {
         links: {
           logoutRedirect: {
-            url: "/my-home"
-          }
-        }
+            url: "/my-home",
+          },
+        },
       })
     );
     const { getByText } = render(<Navbar />);
     const logout = getByText("Logout");
     expect(logout).toMatchObject({
-      href: expect.stringMatching("successUrl=/my-home")
+      href: expect.stringMatching("successUrl=/my-home"),
     });
   });
 });

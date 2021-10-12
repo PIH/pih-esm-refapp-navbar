@@ -2,7 +2,7 @@ import React from "react";
 import { createErrorHandler } from "@openmrs/esm-framework";
 import {
   getLoginLocations,
-  setSessionLocation
+  setSessionLocation,
 } from "../location-menu/location-menu.resource";
 import style from "./location-menu.css";
 
@@ -12,7 +12,7 @@ export default function LocationMenu(props: LocationMenuProps) {
 
   React.useEffect(() => {
     const sub = getLoginLocations().subscribe(
-      locations => setLoginLocations(locations),
+      (locations) => setLoginLocations(locations),
       createErrorHandler()
     );
     return () => sub.unsubscribe();
@@ -34,7 +34,7 @@ export default function LocationMenu(props: LocationMenuProps) {
       key={"refapp-navbar-" + option.uuid}
       id={option.uuid}
       name="location"
-      onClick={evt => setNewLocation(option)}
+      onClick={(evt) => setNewLocation(option)}
     >
       {option.display}
     </button>
