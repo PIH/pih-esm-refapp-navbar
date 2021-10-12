@@ -63,8 +63,13 @@ function setupOpenMRS() {
   };
 
   return {
-    lifecycle: getAsyncLifecycle(() => import("./root.component"), options),
-    activate: () => true
+    pages: [{
+      load: getAsyncLifecycle(() => import("./root.component"), options),
+      route: () => true,
+      order: 0
+
+    }
+    ]
   };
 }
 

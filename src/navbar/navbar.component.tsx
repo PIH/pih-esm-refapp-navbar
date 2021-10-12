@@ -37,7 +37,7 @@ export default function Navbar(props) {
 
   // console.log(user);
   return (
-    <nav>
+    <nav className={style.navbarWrapper}>
       <div className={style.navbar}>
         <div className={`omrs-type-title-4 ${style.brand}`}>
           <ConfigurableLink to={config.links.home.url} tabIndex={1}>
