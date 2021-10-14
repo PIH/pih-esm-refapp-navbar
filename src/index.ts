@@ -5,7 +5,7 @@ import {
   isUrl,
 } from "@openmrs/esm-framework";
 
-const backendDependencies = { appui: "1.0.0" };
+const backendDependencies = { appui: "^1.0.0" };
 
 const importTranslation = require.context(
   "../translations",
