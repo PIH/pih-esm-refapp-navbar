@@ -1,9 +1,15 @@
 import React from "react";
 import { of } from "rxjs";
+import { mock__defaultConfig } from "./default_config";
+
+window.openmrsBase = "/openmrs";
+window.getOpenmrsSpaBase = () => "/openmrs/spa";
 
 export const openmrsFetch = jest.fn().mockReturnValue(new Promise(() => {}));
 
-export const openmrsObservableFetch = jest.fn().mockReturnValue(of({}));
+export const openmrsObservableFetch = jest
+  .fn()
+  .mockReturnValue(of({ data: { results: [] } }));
 
 export const getCurrentUser = jest
   .fn()
@@ -11,7 +17,7 @@ export const getCurrentUser = jest
     if (includeAuthStatus) {
       return of({
         user: { display: "admin" },
-        sessionLocation: { display: "Earth" }
+        sessionLocation: { display: "Earth" },
       });
     } else {
       return of({ display: "admin" });
@@ -20,7 +26,7 @@ export const getCurrentUser = jest
 
 export function createErrorHandler() {
   return function errorHandler(err) {
-    console.log(`Received error ${err}`);
+    console.log(`Received error ${err}`, err.stack);
   };
 }
 
@@ -28,25 +34,7 @@ export const defineConfigSchema = jest.fn();
 
 export const validators = {
   isBoolean: jest.fn(),
-  isString: jest.fn()
-};
-
-export const mock__defaultConfig = {
-  links: {
-    home: {
-      url: "/home"
-    },
-    account: {
-      url: "/account"
-    },
-    logoutRedirect: {
-      url: "/home"
-    }
-  },
-  brand: {
-    src: null,
-    alt: "OpenMRS"
-  }
+  isString: jest.fn(),
 };
 
 export const useConfig = jest.fn().mockReturnValue(mock__defaultConfig);
@@ -58,3 +46,8 @@ export const ConfigurableLink = jest
   .mockImplementation((config: { to: string; children: React.ReactNode }) => (
     <a href={config.to}>{config.children}</a>
   ));
+
+export const interpolateUrl = (url) =>
+  url
+    .replace("${openmrsBase}", window.openmrsBase)
+    .replace("${openmrsSpaBase}", window.getOpenmrsSpaBase());

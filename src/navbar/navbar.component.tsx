@@ -5,6 +5,7 @@ import {
   ConfigurableLink,
   getCurrentUser,
   useConfig,
+  interpolateUrl,
 } from "@openmrs/esm-framework";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -44,7 +45,10 @@ export default function Navbar(props) {
         <div className={`omrs-type-title-4 ${style.brand}`}>
           <ConfigurableLink to={config.links.home.url} tabIndex={1}>
             {config.brand.src ? (
-              <img alt={config.brand.alt} src={config.brand.src} />
+              <img
+                alt={config.brand.alt}
+                src={interpolateUrl(config.brand.src)}
+              />
             ) : (
               <svg role="img" width="10rem">
                 <use href="#omrs-logo-partial-mono"></use>
