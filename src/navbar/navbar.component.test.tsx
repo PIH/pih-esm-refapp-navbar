@@ -6,7 +6,7 @@ import { of } from "rxjs";
 import Navbar from "./navbar.component";
 import { useConfig } from "@openmrs/esm-framework";
 import { getLoginLocations } from "../location-menu/location-menu.resource";
-import { mock__defaultConfig } from "../../__mocks__/openmrs-esm-framework.mock";
+import { mock__defaultConfig } from "../../__mocks__/default_config";
 
 const mockUseConfig = useConfig as jest.Mock;
 jest.mock("../location-menu/location-menu.resource");
@@ -17,7 +17,6 @@ const loginLocations = [
 ];
 mockGetLoginLocations.mockReturnValue(of(loginLocations));
 
-(window as any).openmrsBase = "/openmrs";
 // hack around js-dom to make navigation testable
 delete window.location;
 //@ts-ignore
@@ -53,7 +52,7 @@ describe(`Navbar config`, () => {
     mockUseConfig.mockReturnValue(
       mergeDeepRight(mock__defaultConfig, {
         brand: {
-          src: "my-logo.png",
+          src: "${openmrsBase}/my-logo.png",
           alt: "My Org",
         },
       })
@@ -61,7 +60,7 @@ describe(`Navbar config`, () => {
     const { getByAltText } = render(<Navbar />);
     const logo = getByAltText("My Org");
     expect(logo).toMatchObject({
-      src: expect.stringMatching(/my-logo.png$/),
+      src: expect.stringMatching(/openmrs\/my-logo.png$/),
     });
   });
 
