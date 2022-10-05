@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import Root from "./root.component";
 
 describe(`<Root />`, () => {
-  it.skip(`renders without dying`, () => {
+  it(`renders without dying`, () => {
     render(<Root />);
   });
 });

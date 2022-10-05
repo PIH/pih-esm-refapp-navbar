@@ -29,7 +29,7 @@ describe("Navbar", () => {
     logo = ui.container.querySelector("svg use");
   });
 
-  it.skip("displays everything expected", () => {
+  it("displays everything expected", () => {
     expect(logo.getAttribute("href")).toEqual("#omrs-logo-partial-mono");
     const username = "admin";
     const location = "Earth";
@@ -40,8 +40,8 @@ describe("Navbar", () => {
     expect(locationButton).toBeVisible();
   });
 
-  it.skip("opens the location picker", () => {
-    const locationButton = ui.container.querySelector(".fa-map-marker-alt");
+  it("opens the location picker", () => {
+    const locationButton = ui.container.querySelector(".locationButton");
     fireEvent.click(locationButton);
     expect(ui.queryByText("Mars")).toBeVisible();
   });
