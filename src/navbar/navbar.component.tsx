@@ -18,6 +18,7 @@ import {
 import LocationMenu from "../location-menu/location-menu.component";
 
 import style from "./navbar.css";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 export default function Navbar(props) {
   const config = useConfig();
@@ -37,8 +38,6 @@ export default function Navbar(props) {
     );
     return () => sub.unsubscribe();
   }, []);
-
-  // console.log(user);
   return (
     <nav className={style.navbarWrapper}>
       <div className={style.navbar}>
@@ -58,7 +57,7 @@ export default function Navbar(props) {
         </div>
         <div className={style.menu}>
           <div className={style.user}>
-            <FontAwesomeIcon icon={faUser} />
+            {<FontAwesomeIcon icon={faUser as IconProp} />}
             {user && user.user && user.user.display}
           </div>
           <div>
@@ -67,10 +66,12 @@ export default function Navbar(props) {
               onClick={() => setIsLocationMenuOpen(!isLocationMenuOpen)}
               tabIndex={2}
             >
-              <FontAwesomeIcon icon={faMapMarkerAlt} />
+              {<FontAwesomeIcon icon={faMapMarkerAlt as IconProp} />}
               {location && location.display}
               <FontAwesomeIcon
-                icon={isLocationMenuOpen ? faCaretUp : faCaretDown}
+                icon={
+                  (isLocationMenuOpen ? faCaretUp : faCaretDown) as IconProp
+                }
                 style={{ fontSize: "12px" }}
               />
             </button>
@@ -85,7 +86,7 @@ export default function Navbar(props) {
               tabIndex={3}
             >
               <Trans id="logout">Logout</Trans>
-              <FontAwesomeIcon icon={faSignOutAlt} />
+              <FontAwesomeIcon icon={faSignOutAlt as IconProp} />
             </ConfigurableLink>
           </div>
         </div>

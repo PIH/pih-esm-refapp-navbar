@@ -1,6 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npx pretty-quick --staged
-npx concurrently 'npm:lint' 'npm:test' 'npm:typescript' 'npm:update-translations'
-git add translations/*.json
+set -e  # die on error
+
+yarn pretty-quick --staged
+yarn run verify

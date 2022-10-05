@@ -4,8 +4,8 @@
     "module": "esnext",
     "allowSyntheticDefaultImports": true,
     "jsx": "react",
+    "skipLibCheck": true,
     "moduleResolution": "node",
-    "resolveJsonModule": true,
     "lib": [
       "dom",
       "es5",
@@ -16,9 +16,8 @@
       "es2018",
       "es2020"
     ],
-    "paths": {
-      "@openmrs/*": ["./node_modules/@openmrs/*"]
-    },
-    "noEmit": true
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "target": "esnext"
   }
 }

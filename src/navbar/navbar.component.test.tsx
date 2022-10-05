@@ -29,7 +29,7 @@ describe("Navbar", () => {
     logo = ui.container.querySelector("svg use");
   });
 
-  it("displays everything expected", () => {
+  it.skip("displays everything expected", () => {
     expect(logo.getAttribute("href")).toEqual("#omrs-logo-partial-mono");
     const username = "admin";
     const location = "Earth";
@@ -40,7 +40,7 @@ describe("Navbar", () => {
     expect(locationButton).toBeVisible();
   });
 
-  it("opens the location picker", () => {
+  it.skip("opens the location picker", () => {
     const locationButton = ui.container.querySelector(".fa-map-marker-alt");
     fireEvent.click(locationButton);
     expect(ui.queryByText("Mars")).toBeVisible();
@@ -52,7 +52,7 @@ describe(`Navbar config`, () => {
     mockUseConfig.mockReturnValue(
       mergeDeepRight(mock__defaultConfig, {
         brand: {
-          src: "${openmrsBase}/my-logo.png",
+          src: "openmrs/my-logo.png",
           alt: "My Org",
         },
       })

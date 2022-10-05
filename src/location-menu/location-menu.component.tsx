@@ -27,7 +27,7 @@ export default function LocationMenu(props: LocationMenuProps) {
         .finally(() => setNewLocation(null));
     }
     return () => abortController.abort();
-  }, [newLocation]);
+  }, [newLocation, props]);
 
   const RadioInput = (option: Location) => (
     <button
