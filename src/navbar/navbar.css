@@ -70,7 +70,7 @@ a:hover.navbarLink {
 
 .locationButton {
   background-color: transparent;
-  border: 1px solid #ffc166;
+  border: 1px solid #ff9800;
   border-radius: 3px;
   color: white;
   font: inherit;
@@ -78,7 +78,7 @@ a:hover.navbarLink {
 }
 
 .locationButton:hover {
-  background-color: #ffc166;
+  background-color: #ff9800;
 }
 
 .locationButton:focus {
